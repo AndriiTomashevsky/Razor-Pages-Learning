@@ -29,14 +29,14 @@ namespace RazorPagesApp
             DisplayedPeople = people;
         }
 
-        public void OnGetByName(string name)
+        public void OnPostGreaterThan(int age)
         {
-            DisplayedPeople = people.Where(p => p.Name.Contains(name)).ToList();
+            DisplayedPeople = people.Where(p => p.Age > age).ToList();
         }
 
-        public void OnGetByAge(int age)
+        public void OnPostLessThan(int age)
         {
-            DisplayedPeople = people.Where(p => p.Age == age).ToList();
+            DisplayedPeople = people.Where(p => p.Age < age).ToList();
         }
     }
 }

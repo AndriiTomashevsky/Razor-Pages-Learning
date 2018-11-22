@@ -4,6 +4,11 @@
 @using RazorPagesApp.Models
 
 <h2>Users</h2>
+<form method="POST">
+	<input type="number" name="age" />
+	<input type="submit" asp-page-handler="GreaterThan" value="Older" />
+	<input type="submit" asp-page-handler="LessThan" value="Younger" />
+</form>
 <table class="table">
 	<tr><td>Name</td><td>Age</td></tr>
 	@foreach (Person person in Model.DisplayedPeople)
