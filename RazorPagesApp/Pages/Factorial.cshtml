@@ -4,11 +4,8 @@
 	ViewData["Title"] = "Factorial";
 }
 
-@if (Model.IsCorrect)
-{
-	<h2>Factorial of number @Model.Number is @Model.Result</h2>
-}
-else
-{
-	<p>Invalid number</p>
-}
+<h2>@Model.Message</h2>
+<form method="post">
+	<input type="number" name="number" />
+	<input type="submit" value="Send" />
+</form>

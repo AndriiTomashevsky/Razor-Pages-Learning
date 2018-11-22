@@ -9,24 +9,29 @@ namespace RazorPagesApp.Pages
 {
     public class FactorialModel : PageModel
     {
-        public int Number { get; set; }
-        public int Result { get; set; }
-        public bool IsCorrect { get; set; } = true;
+        public string Message { get; set; }
 
-        public void OnGet(int? number)
+        public void OnGet()
+        {
+            Message = "Input a number";
+        }
+
+        public void OnPost(int? number)
         {
             if (number == null || number < 1)
             {
-                IsCorrect = false;
-                return;
+                Message = "Invalid number. Repeat inputing";
             }
-
-            Number = number.Value;
-            Result = 1;
-
-            for (int i = 1; i <= number; i++)
+            else
             {
-                Result *= i;
+                int result = 1;
+
+                for (int i = 1; i <= number; i++)
+                {
+                    result *= i;
+                }
+
+                Message = $"Factorial of number {number} is {result}";
             }
         }
     }
