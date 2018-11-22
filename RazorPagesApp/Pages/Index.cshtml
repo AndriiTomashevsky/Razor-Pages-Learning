@@ -6,7 +6,7 @@
 
 <h3>@Model.Message</h3>
 
-<a href='@Url.Page("/About", new {name="Bob", age=32 })'>About</a>
+<a asp-page="About" asp-route-name="Bob" asp-route-age="32" asp-page-handler="otherhandler">About</a>
 
 <!--
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">

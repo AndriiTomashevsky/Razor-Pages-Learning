@@ -17,5 +17,12 @@ namespace RazorPagesApp.Pages
 
             Data = $"User {name}, Age {age}";
         }
+
+        public void OnGetOtherHandler(string name, int age)
+        {
+            Message = "Your application description page.";
+
+            Data = $"User {name}, Age {age} from other handler";
+        }
     }
 }
