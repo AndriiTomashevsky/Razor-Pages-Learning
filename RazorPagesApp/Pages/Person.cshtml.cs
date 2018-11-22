@@ -10,17 +10,33 @@ namespace RazorPagesApp
 {
     public class PersonModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public int Id { get; set; }
+        List<Person> people;
+        public List<Person> DisplayedPeople { get; set; }
 
-        [BindProperty(SupportsGet = true)]
-        public string Name { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public int Age { get; set; }
+        public PersonModel()
+        {
+            people = new List<Person>()
+            {
+                new Person{ Name="Tom", Age=23},
+                new Person {Name = "Sam", Age=25},
+                new Person {Name="Bob", Age=23},
+                new Person{Name="Tom", Age=25}
+            };
+        }
 
         public void OnGet()
         {
+            DisplayedPeople = people;
+        }
+
+        public void OnGetByName(string name)
+        {
+            DisplayedPeople = people.Where(p => p.Name.Contains(name)).ToList();
+        }
+
+        public void OnGetByAge(int age)
+        {
+            DisplayedPeople = people.Where(p => p.Age == age).ToList();
         }
     }
 }
