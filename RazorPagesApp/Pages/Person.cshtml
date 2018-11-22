@@ -1,4 +1,4 @@
-﻿@page "{id}/{name}/{age}"
+﻿@page "{id:int}/{name:alpha:minlength(3)}/{age:int}"
 @model PersonModel
 
 <p>Id = @Model.Id</p>
