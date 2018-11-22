@@ -1,0 +1,29 @@
+﻿@page "{id:int}"
+@model EditModel
+@{
+	ViewData["Title"] = "Update product";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+	<div asp-validation-summary="All"></div>
+	<input asp-for="Product.Id" type="hidden" />
+	<div>
+		<label>Name</label>
+		<div>
+			<input asp-for="Product.Name" />
+			<span asp-validation-for="Product.Name"></span>
+		</div>
+	</div>
+	<div>
+		<label>Price</label>
+		<div>
+			<input asp-for="Product.Price" type="number" />
+			<span asp-validation-for="Product.Price"></span>
+		</div>
+	</div>
+	<div>
+		<input type="submit" value="Save" />
+	</div>
+</form>

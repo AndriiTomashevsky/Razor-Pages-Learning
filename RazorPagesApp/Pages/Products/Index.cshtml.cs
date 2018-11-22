@@ -19,9 +19,22 @@ namespace RazorPagesApp.Pages.Products
             _context = db;
         }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
-            Products = _context.Products.AsNoTracking().ToList();
+            Products = await _context.Products.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage();
         }
     }
 }
