@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RazorPagesApp.Models;
 
 namespace RazorPagesApp
 {
@@ -11,20 +12,17 @@ namespace RazorPagesApp
     {
         public string Message { get; set; }
 
-        [BindProperty(Name = "othername", SupportsGet = true)]
-        public string Name { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public int Age { get; set; }
+        [BindProperty]
+        public Person Person { get; set; }
 
         public void OnGet()
         {
-            Message = $"Name: {Name}  Age: {Age}";
+            Message = "Input data";
         }
 
         public void OnPost()
         {
-            Message = $"Name: {Name}  Age: {Age}";
+            Message = $"Name: {Person.Name}  Age: {Person.Age}";
         }
     }
 }
