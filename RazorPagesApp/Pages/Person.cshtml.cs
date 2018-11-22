@@ -11,15 +11,15 @@ namespace RazorPagesApp
     {
         public string Message { get; set; }
 
-        [BindProperty]
+        [BindProperty(Name = "othername", SupportsGet = true)]
         public string Name { get; set; }
 
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public int Age { get; set; }
 
         public void OnGet()
         {
-            Message = "Input data";
+            Message = $"Name: {Name}  Age: {Age}";
         }
 
         public void OnPost()
