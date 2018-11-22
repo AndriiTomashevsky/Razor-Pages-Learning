@@ -1,14 +1,6 @@
-﻿@page
-@model PersonModel
+﻿@page "{id}"
 @{
-	ViewData["Title"] = "Ввод данных";
+	var userid = RouteData.Values["id"];
 }
 
-<h2>@Model.Message</h2>
-<form method="post">
-	<label for="name">Name</label><br />
-	<input type="text" name="othername" id="name" /><br /><br />
-	<label for="age">Age</label><br />
-	<input type="number" name="age" id="age" /><br /><br />
-	<input type="submit" value="Оправить" />
-</form>
+<h2>Id = @userid</h2>
