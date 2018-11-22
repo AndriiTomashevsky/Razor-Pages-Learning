@@ -11,7 +11,7 @@ namespace RazorPagesApp
     public class PersonModel : PageModel
     {
         List<Person> people;
-        public List<Person> DisplayedPeople { get; set; }
+        public Person Person { get; set; }
 
         public PersonModel()
         {
@@ -20,23 +20,18 @@ namespace RazorPagesApp
                 new Person{ Name="Tom", Age=23},
                 new Person {Name = "Sam", Age=25},
                 new Person {Name="Bob", Age=23},
-                new Person{Name="Tom", Age=25}
+                new Person{Name="Tim", Age=25}
             };
         }
 
-        public void OnGet()
+        public IActionResult OnGet(string name)
         {
-            DisplayedPeople = people;
-        }
+            Person = people.FirstOrDefault(p => p.Name == name);
 
-        public void OnPostGreaterThan(int age)
-        {
-            DisplayedPeople = people.Where(p => p.Age > age).ToList();
-        }
+            if (Person == null)
+                return NotFound();
 
-        public void OnPostLessThan(int age)
-        {
-            DisplayedPeople = people.Where(p => p.Age < age).ToList();
+            return Page();
         }
     }
 }
