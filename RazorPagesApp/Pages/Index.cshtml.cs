@@ -11,9 +11,10 @@ namespace RazorPagesApp.Pages
     {
         public string Message { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            Message = "Index page";
+            string url = Url.Page("About", new { name = "Tom", age = 34 });
+            return Redirect(url);
         }
     }
 }

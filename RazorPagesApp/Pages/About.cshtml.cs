@@ -9,10 +9,13 @@ namespace RazorPagesApp.Pages
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
+        public string Data { get; set; }
 
-        public void OnGet()
+        public void OnGet(string name, int age)
         {
             Message = "Your application description page.";
+
+            Data = $"User {name}, Age {age}";
         }
     }
 }
