@@ -10,19 +10,11 @@ namespace RazorPagesApp
 {
     public class PersonModel : PageModel
     {
-        public string Message { get; set; }
+        public int Id { get; set; }
 
-        [BindProperty]
-        public Person Person { get; set; }
-
-        public void OnGet()
+        public void OnGet(int id)
         {
-            Message = "Input data";
-        }
-
-        public void OnPost()
-        {
-            Message = $"Name: {Person.Name}  Age: {Person.Age}";
+            Id = id;
         }
     }
 }

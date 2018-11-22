@@ -1,6 +1,4 @@
 ﻿@page "{id}"
-@{
-	var userid = RouteData.Values["id"];
-}
+@model PersonModel
 
-<h2>Id = @userid</h2>
+<h2>Id = @Model.Id</h2>
