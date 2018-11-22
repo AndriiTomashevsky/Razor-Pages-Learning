@@ -1,0 +1,14 @@
+﻿@page
+@model FactorialModel
+@{
+	ViewData["Title"] = "Factorial";
+}
+
+@if (Model.IsCorrect)
+{
+	<h2>Factorial of number @Model.Number is @Model.Result</h2>
+}
+else
+{
+	<p>Invalid number</p>
+}
