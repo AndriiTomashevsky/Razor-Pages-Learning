@@ -10,11 +10,11 @@ namespace RazorPagesApp
 {
     public class PersonModel : PageModel
     {
+        [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
-        public void OnGet(int id)
+        public void OnGet()
         {
-            Id = id;
         }
     }
 }
